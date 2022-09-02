@@ -53,10 +53,10 @@ const displayNews = (newsData, category_name) => {
         div.innerHTML = `
         <div class="card mb-3">
             <div class="row g-0">
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <img src="${thumbnail_url}" class="img-fluid p-3 rounded-start h-100 w-100" alt="...">
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-9">
                     <div class="card-body px-4">
                         <h5 class="card-title mb-4 mt-3 fw-bold">${title}</h5>
                         <p class="card-text text-justify text-muted">${details.length > 500 ? details.slice(0, 500) + '...' : details}</p>
@@ -106,10 +106,41 @@ const modalNewsLoad = async newsId => {
 
 // modal Show Data 
 const modalNewsDisplay = modalData => {
-    
+    const modalBody = document.getElementById('modalBody');
     modalData.forEach(data => {
-        const { image_url, title, author, total_view, rating } = data;
+        const { image_url, title, author, total_view, rating, details } = data;
         const { name, published_date, img } = author;
-
+        const modalTitle = document.getElementById('modalTitle');
+        modalTitle.innerText = `${name == null ? 'No Data Available' :name}'s Report`;
+        modalBody.innerHTML = `
+        <div class="card">
+            <img src="${image_url}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">${title}</h5>
+                <p class="card-text mt-4">${details.length > 400 ? details.slice(0, 400) : details}</p>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-4">
+                    <div class="d-flex">
+                        <img src="${img}" class="rounded-circle user-image" alt="">
+                        <div class="ps-3">
+                            <h6 class="mb-1">${name == null ? 'No Data Available' :name}</h6>
+                            <p class="text-muted">${published_date == null ? 'No Data Available' :published_date}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <p><i class="fa-solid fa-eye"></i></p>
+                        <p class="ps-2">${total_view == null ? 'No Data Available' :total_view}</p>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <p class="me-2">${rating.number}</p>
+                        <p><i class="fa-solid fa-star"></i></p>
+                        <p><i class="fa-solid fa-star"></i></p>
+                        <p><i class="fa-solid fa-star"></i></p>
+                        <p><i class="fa-solid fa-star"></i></p>
+                        <p><i class="fa-regular fa-star-half-stroke"></i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
     })
 }
