@@ -80,7 +80,7 @@ const displayNews = (newsData, category_name) => {
                                 <p><i class="fa-regular fa-star-half-stroke"></i></p>
                             </div>
                             <div class="d-flex align-items-center justify-content-center">
-                                <button class="btn" onclick="modalNewsLoad('${_id}')"><i class="fa-solid fa-arrow-right text-primary"></i></button>
+                                <button class="btn" onclick="modalNewsLoad('${_id}')" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-arrow-right text-primary"></i></button>
                             </div>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ const modalNewsLoad = async newsId => {
     try {
         const res = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
         const data = await res.json();
-        console.log(data.data);
+        modalNewsDisplay(data.data);
     } catch (error) {
         console.log(error);
     }
@@ -105,6 +105,11 @@ const modalNewsLoad = async newsId => {
 
 
 // modal Show Data 
-const modalNewsDisplay = () => {
+const modalNewsDisplay = modalData => {
     
+    modalData.forEach(data => {
+        const { image_url, title, author, total_view, rating } = data;
+        const { name, published_date, img } = author;
+
+    })
 }
