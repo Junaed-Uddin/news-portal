@@ -1,4 +1,4 @@
-
+// get data from API 
 const loadData = () => {
     fetch('https://openapi.programming-hero.com/api/news/categories')
         .then(res => res.json())
@@ -8,6 +8,7 @@ const loadData = () => {
 
 loadData();
 
+// display categories
 const displayCategories = categories => {
     const ul = document.getElementById('ul');
     categories.forEach(category => {
@@ -20,6 +21,7 @@ const displayCategories = categories => {
     });
 }
 
+// load news data 
 const loadNews = (categoryId, category_name) => {
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
@@ -27,6 +29,7 @@ const loadNews = (categoryId, category_name) => {
         .catch(err => console.log(err));
 }
 
+// display news 
 const displayNews = (newsData, category_name) => {
     const notFound = document.getElementById('notFound');
     if (newsData.length === 0) {
@@ -40,12 +43,11 @@ const displayNews = (newsData, category_name) => {
     const cardContainer = document.getElementById('card-container');
     cardContainer.classList.remove('d-none');
     newsCount.innerText = newsData.length + ` Items Found for Category ${category_name}`;
-    console.log(newsData);
 
     const newsDisplay = document.getElementById('news-display');
     newsDisplay.textContent = '';
     newsData.forEach(news => {
-        const { title, thumbnail_url, details, author, total_view } = news;
+        const { _id, title, thumbnail_url, details, author, total_view } = news;
         const { name, published_date, img } = author;
         const div = document.createElement('div');
         div.innerHTML = `
@@ -78,7 +80,7 @@ const displayNews = (newsData, category_name) => {
                                 <p><i class="fa-regular fa-star-half-stroke"></i></p>
                             </div>
                             <div class="d-flex align-items-center justify-content-center">
-                                <button class="btn"><i class="fa-solid fa-arrow-right text-primary"></i></button>
+                                <button class="btn" onclick="modalNewsLoad('${_id}')"><i class="fa-solid fa-arrow-right text-primary"></i></button>
                             </div>
                         </div>
                     </div>
@@ -88,4 +90,21 @@ const displayNews = (newsData, category_name) => {
         `;
         newsDisplay.appendChild(div);
     })
+}
+
+// modal load data 
+const modalNewsLoad = async newsId => {
+    try {
+        const res = await fetch(`https://openapi.programming-hero.com/api/news/${newsId}`);
+        const data = await res.json();
+        console.log(data.data);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+// modal Show Data 
+const modalNewsDisplay = () => {
+    
 }
