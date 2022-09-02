@@ -1,0 +1,31 @@
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+.nav-image {
+  width: 40px;
+  height: 40px;
+}
+
+ul > li {
+  list-style: none;
+  cursor: pointer;
+}
+
+ul > li > a {
+  text-decoration: none;
+  color: black;
+}
+
+.top-margin {
+  margin-top: 100px;
+}
+
+.user-image{
+  width: 45px;
+  height: 45px;
+}
