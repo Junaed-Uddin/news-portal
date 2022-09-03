@@ -159,3 +159,4 @@ const spinLoader = isLoading => {
         spinner.classList.add('d-none');
     }
 }
+

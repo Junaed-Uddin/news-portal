@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CBS News</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container my-5">
+        <h3 class="text-center">Some Questions</h3>
+    </header>
+    <main>
+        <section class="container">
+            <div class="row row-cols-1 row-cols-md-1 g-4">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body" style="overflow-x:auto;">
+                            <h5 class="card-title py-2">Q.1 What's the difference between var, let & const?</h5>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">var</th>
+                                        <th scope="col">let</th>
+                                        <th scope="col">const</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The scope of a var variable is functional scope.</td>
+                                        <td>The scope of a let variable is block scope.</td>
+                                        <td>The scope of a const variable is block scope.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>It can be updated and re-declared into the scope.</td>
+                                        <td>It can be updated but cannot be re-declared into the scope.</td>
+                                        <td>It cannot be updated or re-declared into the scope.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>It can be declared without initialization.</td>
+                                        <td>It can be declared without initialization.</td>
+                                        <td>It cannot be declared without initialization.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body" style="overflow-x:auto;">
+                            <h5 class="card-title py-2">Q.2 What's the difference between arrow function and regular
+                                function?
+                            </h5>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">Function Declaration</th>
+                                        <th scope="col">Arrow Function</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>In regular function, Arguments keywords can be used to access the arguments
+                                            of which passed to function.</td>
+                                        <td>Arrow functions do not have an arguments binding.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>In a regular function, there is an arguments local variable. If the
+                                            number of arguments to our function is dynamic, using arguments allows us to
+                                            easily do things like calculating the maximum number of passed arguments
+                                        </td>
+                                        <td>In the arrow function, there are no arguments, if we access arguments in the
+                                            arrow function will return the arguments of the closest non-arrow parent
+                                            function.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>In non-restrict mode, regular functions allow us to use duplicate named
+                                            parameters. But in strict mode, it is not allowed.
+                                        </td>
+                                        <td>In arrow functions, parameters with the same name are not allowed whether
+                                            the strict mode is enabled or not.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body" style="overflow-x:auto;">
+                            <h5 class="card-title py-2">Q.3 What's the difference between map, forEach, filter, find?</h5>
+                            <table class="table table-hover table-bordered table-responsive">
+                                <thead class="text-center">
+                                    <tr>
+                                        <th scope="col">map</th>
+                                        <th scope="col">forEach</th>
+                                        <th scope="col">filter</th>
+                                        <th scope="col">find</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The map method receives a function as a parameter. Then it applies it on
+                                            each element and returns an entirely new array</td>
+                                        <td>The forEach() method receives a function as an argument and executes it once
+                                            for each array element. However, instead of returning a new array like map,
+                                            it returns undefined</td>
+                                        <td>filter() checks every element in an array to see if it meets a certain
+                                            criteria and returns a new array with the elements that return truthy for
+                                            the criteria</td>
+                                        <td>The find() method executes a function for each array element and returns
+                                            undefined if no elements are found</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-5">
+                        <div class="card-body">
+                            <h5 class="card-title">Q.4 Why you use template string?</h5>
+                            <p class="card-text">Why do we use template string in JavaScript?
+                                Image result for Why you use template string?
+                                Template strings are a powerful feature of modern JavaScript released in ES6. It lets us
+                                insert/interpolate variables and expressions into strings without needing to concatenate
+                                like in older versions of JavaScript. It allows us to create strings that are complex
+                                and contain dynamic elements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
