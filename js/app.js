@@ -32,11 +32,14 @@ const loadNews = (categoryId, category_name) => {
 // display news 
 const displayNews = (newsData, category_name) => {
     const notFound = document.getElementById('notFound');
+    const spinner = document.getElementById('spinner');
+
     if (newsData.length === 0) {
         notFound.classList.remove('d-none');
     }
     else {
         notFound.classList.add('d-none');
+        spinner.classList.remove('d-none');
     }
 
     const newsCount = document.getElementById('newsCount');
@@ -46,6 +49,8 @@ const displayNews = (newsData, category_name) => {
 
     const newsDisplay = document.getElementById('news-display');
     newsDisplay.textContent = '';
+
+    newsData.sort((a, b) => b.total_view - a.total_view);
     newsData.forEach(news => {
         const { _id, title, thumbnail_url, details, author, total_view } = news;
         const { name, published_date, img } = author;
@@ -53,10 +58,10 @@ const displayNews = (newsData, category_name) => {
         div.innerHTML = `
         <div class="card mb-3">
             <div class="row g-0">
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <img src="${thumbnail_url}" class="img-fluid p-3 rounded-start h-100 w-100" alt="...">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-10">
                     <div class="card-body px-4">
                         <h5 class="card-title mb-4 mt-3 fw-bold">${title}</h5>
                         <p class="card-text text-justify text-muted">${details.length > 500 ? details.slice(0, 500) + '...' : details}</p>
