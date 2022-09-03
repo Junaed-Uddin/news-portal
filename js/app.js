@@ -72,7 +72,7 @@ const displayNews = (newsData, category_name) => {
                                     <p class="text-muted">${published_date == null ? 'No Data Available' : published_date}</p>
                                 </div>
                             </div>
-                            <div class="d-flex align-items-center justify-content-lg-center justify-content-md-end justify-content-center pe-0">
+                            <div class="d-flex align-items-center justify-content-lg-center justify-content-md-end justify-content-center pe-md-0">
                                 <p><i class="fa-solid fa-eye text-primary"></i></p>
                                 <p class="ps-2">${total_view == null ? 'No Data Available' : total_view}</p>
                             </div>
