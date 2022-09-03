@@ -61,7 +61,7 @@ const displayNews = (newsData, category_name) => {
                     <img src="${thumbnail_url}" class="img-fluid p-3 card-image rounded-start h-100 w-100" alt="...">
                 </div>
                 <div class="col-lg-10 col-md-9">
-                    <div class="card-body px-4">
+                    <div class="card-body">
                         <h5 class="card-title mb-4 mt-3 fw-bold">${title}</h5>
                         <p class="card-text text-justify text-muted">${details.length > 500 ? details.slice(0, 500) + '...' : details}</p>
                         <div class="row row-cols-1 row-cols-md-4 mt-4">
