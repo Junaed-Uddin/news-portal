@@ -57,10 +57,10 @@ const displayNews = (newsData, category_name) => {
         div.innerHTML = `
         <div class="card mb-3">
             <div class="row g-0">
-                <div class="col-lg-2 col-md-3">
+                <div class="col-lg-2 col-md-4">
                     <img src="${thumbnail_url}" class="img-fluid p-3 card-image rounded-start h-100 w-100" alt="...">
                 </div>
-                <div class="col-lg-10 col-md-9">
+                <div class="col-lg-10 col-md-8">
                     <div class="card-body">
                         <h5 class="card-title mb-4 mt-3 fw-bold">${title}</h5>
                         <p class="card-text text-justify text-muted">${details.length > 500 ? details.slice(0, 500) + '...' : details}</p>
@@ -68,13 +68,13 @@ const displayNews = (newsData, category_name) => {
                             <div class="d-flex justify-content-center justify-content-md-start align-items-md-center align-items-lg-start">
                                 <img src="${img}" class="rounded-circle user-image" alt="">
                                 <div class="ps-3">
-                                    <h6 class="mb-1">${name == null ? 'No Data Available' : name}</h6>
-                                    <p class="text-muted">${published_date == null ? 'No Data Available' : published_date}</p>
+                                    <h6 class="mb-1">${(name === null || name === '') ? 'Not Found' : name}</h6>
+                                    <p class="text-muted">${(published_date === null || published_date === '') ? 'Not Found' : published_date}</p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center justify-content-lg-center justify-content-md-end justify-content-center pe-md-0">
                                 <p><i class="fa-solid fa-eye text-primary"></i></p>
-                                <p class="ps-2">${total_view == null ? 'No Data Available' : total_view}</p>
+                                <p class="ps-2">${(total_view === null || total_view === '') ? 'Not Found' : total_view}</p>
                             </div>
                             <div class="d-flex align-items-center justify-content-lg-center justify-content-md-end justify-content-center pe-md-0">
                                 <p><i class="fa-solid fa-star text-primary ps-md-5"></i></p>
@@ -116,7 +116,7 @@ const modalNewsDisplay = modalData => {
         const { image_url, title, author, total_view, rating, details } = data;
         const { name, published_date, img } = author;
         const modalTitle = document.getElementById('modalTitle');
-        modalTitle.innerText = `${name == null ? 'No Data Available' : name}'s Report`;
+        modalTitle.innerText = `${(name === null || name === '') ? 'No Data Available' : name}'s Report`;
         modalBody.innerHTML = `
         <div class="card">
             <img src="${image_url}" class="card-img-top" alt="...">
@@ -127,13 +127,13 @@ const modalNewsDisplay = modalData => {
                     <div class="d-flex justify-content-center justify-content-md-start align-items-md-center align-items-lg-start">
                         <img src="${img}" class="rounded-circle user-image" alt="">
                         <div class="ps-3">
-                            <h6 class="mb-1">${name == null ? 'No Data Available' : name}</h6>
-                            <p class="text-muted">${published_date == null ? 'No Data Available' : published_date}</p>
+                            <h6 class="mb-1">${(name === null || name === '') ? 'No Data Available' : name}</h6>
+                            <p class="text-muted">${(published_date === null || published_date === '') ? 'No Data Available' : published_date}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-center">
                         <p><i class="fa-solid fa-eye text-primary"></i></p>
-                        <p class="ps-2">${total_view == null ? 'No Data Available' : total_view}</p>
+                        <p class="ps-2">${(total_view === null || total_view === '') ? 'No Data Available' : total_view}</p>
                     </div>
                     <div class="d-flex align-items-center justify-content-center">
                         <p class="me-2">${rating.number}</p>
