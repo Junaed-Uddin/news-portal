@@ -23,6 +23,7 @@ const displayCategories = categories => {
 
 // load news data 
 const loadNews = (categoryId, category_name) => {
+    spinLoader(true);
     fetch(`https://openapi.programming-hero.com/api/news/category/${categoryId}`)
         .then(res => res.json())
         .then(data => displayNews(data.data, category_name))
@@ -32,14 +33,11 @@ const loadNews = (categoryId, category_name) => {
 // display news 
 const displayNews = (newsData, category_name) => {
     const notFound = document.getElementById('notFound');
-    const spinner = document.getElementById('spinner');
-
     if (newsData.length === 0) {
         notFound.classList.remove('d-none');
     }
     else {
         notFound.classList.add('d-none');
-        spinner.classList.remove('d-none');
     }
 
     const newsCount = document.getElementById('newsCount');
@@ -94,7 +92,8 @@ const displayNews = (newsData, category_name) => {
         </div>
         `;
         newsDisplay.appendChild(div);
-    })
+    });
+    spinLoader(false);
 }
 
 // modal load data 
@@ -116,7 +115,7 @@ const modalNewsDisplay = modalData => {
         const { image_url, title, author, total_view, rating, details } = data;
         const { name, published_date, img } = author;
         const modalTitle = document.getElementById('modalTitle');
-        modalTitle.innerText = `${name == null ? 'No Data Available' :name}'s Report`;
+        modalTitle.innerText = `${name == null ? 'No Data Available' : name}'s Report`;
         modalBody.innerHTML = `
         <div class="card">
             <img src="${image_url}" class="card-img-top" alt="...">
@@ -127,13 +126,13 @@ const modalNewsDisplay = modalData => {
                     <div class="d-flex">
                         <img src="${img}" class="rounded-circle user-image" alt="">
                         <div class="ps-3">
-                            <h6 class="mb-1">${name == null ? 'No Data Available' :name}</h6>
-                            <p class="text-muted">${published_date == null ? 'No Data Available' :published_date}</p>
+                            <h6 class="mb-1">${name == null ? 'No Data Available' : name}</h6>
+                            <p class="text-muted">${published_date == null ? 'No Data Available' : published_date}</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-center justify-content-center">
                         <p><i class="fa-solid fa-eye"></i></p>
-                        <p class="ps-2">${total_view == null ? 'No Data Available' :total_view}</p>
+                        <p class="ps-2">${total_view == null ? 'No Data Available' : total_view}</p>
                     </div>
                     <div class="d-flex align-items-center justify-content-center">
                         <p class="me-2">${rating.number}</p>
@@ -147,5 +146,16 @@ const modalNewsDisplay = modalData => {
             </div>
         </div>
         `;
-    })
+    });
+}
+
+// Spinner loading 
+const spinLoader = isLoading => {
+    const spinner = document.getElementById('spinner');
+    if (isLoading) {
+        spinner.classList.remove('d-none');
+    }
+    else {
+        spinner.classList.add('d-none');
+    }
 }
