@@ -5,22 +5,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CBS News</title>
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- css  -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <header class="container my-5">
-        <h3 class="text-center">Some Questions</h3>
+    <header>
+        <!-- navbar  -->
+        <nav class="navbar navbar-expand-lg bg-light shadow-md py-3">
+            <div class="container">
+                <a class="navbar-brand fs-4" href="#"><span class="text-primary">CBS</span> News</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fs-6" aria-current="page" href="./index.html">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active pe-md-4 fs-6" href="./blog.html">Blogs</a>
+                        </li>
+                        <img src="./images/1.jpg" class="rounded-circle nav-image" alt="">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <hr>
     </header>
+
     <main>
         <section class="container">
+            <h3 class="text-center my-4">Some Questions</h3>
             <div class="row row-cols-1 row-cols-md-1 g-4">
                 <div class="col">
                     <div class="card">
                         <div class="card-body" style="overflow-x:auto;">
                             <h5 class="card-title py-2">Q.1 What's the difference between var, let & const?</h5>
                             <table class="table table-hover table-bordered table-responsive">
-                                <thead class="text-center">
+                                <thead class="text-center table-secondary">
                                     <tr>
                                         <th scope="col">var</th>
                                         <th scope="col">let</th>
@@ -55,7 +86,7 @@
                                 function?
                             </h5>
                             <table class="table table-hover table-bordered table-responsive">
-                                <thead class="text-center">
+                                <thead class="text-center table-secondary">
                                     <tr>
                                         <th scope="col">Function Declaration</th>
                                         <th scope="col">Arrow Function</th>
@@ -91,9 +122,10 @@
                 <div class="col">
                     <div class="card">
                         <div class="card-body" style="overflow-x:auto;">
-                            <h5 class="card-title py-2">Q.3 What's the difference between map, forEach, filter, find?</h5>
+                            <h5 class="card-title py-2">Q.3 What's the difference between map, forEach, filter, find?
+                            </h5>
                             <table class="table table-hover table-bordered table-responsive">
-                                <thead class="text-center">
+                                <thead class="text-center table-secondary">
                                     <tr>
                                         <th scope="col">map</th>
                                         <th scope="col">forEach</th>

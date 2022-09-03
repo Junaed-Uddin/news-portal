@@ -14,8 +14,9 @@ const displayCategories = categories => {
     categories.forEach(category => {
         const { category_id, category_name } = category;
         const li = document.createElement('li');
+        li.classList.add('py-2', 'py-sm-0');
         li.innerHTML = `
-            <a onclick="loadNews('${category_id}', '${category_name}')">${category_name}</a>    
+            <a class="fw-bold" onclick="loadNews('${category_id}', '${category_name}')">${category_name}</a>    
         `;
         ul.appendChild(li);
     });
@@ -57,14 +58,14 @@ const displayNews = (newsData, category_name) => {
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-md-2">
-                    <img src="${thumbnail_url}" class="img-fluid p-3 rounded-start h-100 w-100" alt="...">
+                    <img src="${thumbnail_url}" class="img-fluid p-3 card-image rounded-start h-100 w-100" alt="...">
                 </div>
                 <div class="col-md-10">
                     <div class="card-body px-4">
                         <h5 class="card-title mb-4 mt-3 fw-bold">${title}</h5>
                         <p class="card-text text-justify text-muted">${details.length > 500 ? details.slice(0, 500) + '...' : details}</p>
                         <div class="row row-cols-1 row-cols-md-4 mt-4">
-                            <div class="d-flex">
+                            <div class="d-flex justify-content-center justify-content-md-start">
                                 <img src="${img}" class="rounded-circle user-image" alt="">
                                 <div class="ps-3">
                                     <h6 class="mb-1">${name == null ? 'No Data Available' : name}</h6>
@@ -122,8 +123,8 @@ const modalNewsDisplay = modalData => {
             <div class="card-body">
                 <h5 class="card-text">${title}</h5>
                 <p class="card-text mt-4">${details.length > 400 ? details.slice(0, 400) : details}</p>
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 mt-4">
-                    <div class="d-flex">
+                <div class="row row-cols-1 row-cols-md-3 mt-4">
+                    <div class="d-flex justify-content-center justify-content-md-start">
                         <img src="${img}" class="rounded-circle user-image" alt="">
                         <div class="ps-3">
                             <h6 class="mb-1">${name == null ? 'No Data Available' : name}</h6>

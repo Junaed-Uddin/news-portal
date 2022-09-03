@@ -29,3 +29,8 @@ ul > li > a {
   width: 45px;
   height: 45px;
 }
+
+.card-image{
+  object-fit: cover;
+  object-position: center top;
+}
